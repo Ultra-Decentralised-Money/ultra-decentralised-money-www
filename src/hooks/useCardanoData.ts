@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { CardanoMetrics, TimePeriod } from '@/types/cardano';
+import { CardanoMetrics, TimePeriod, ValidatorMetrics, GovernanceMetrics, DeFiMetrics } from '@/types/cardano';
 import { cardanoApi } from '@/services/api';
 
 interface UseCardanoDataState {
@@ -64,7 +64,7 @@ export const useCardanoData = (
 };
 
 export const useValidatorData = (timePeriod: TimePeriod, refreshInterval?: number) => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<ValidatorMetrics | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -95,7 +95,7 @@ export const useValidatorData = (timePeriod: TimePeriod, refreshInterval?: numbe
 };
 
 export const useGovernanceData = (timePeriod: TimePeriod, refreshInterval?: number) => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<GovernanceMetrics | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -126,7 +126,7 @@ export const useGovernanceData = (timePeriod: TimePeriod, refreshInterval?: numb
 };
 
 export const useDeFiData = (timePeriod: TimePeriod, refreshInterval?: number) => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<DeFiMetrics | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 

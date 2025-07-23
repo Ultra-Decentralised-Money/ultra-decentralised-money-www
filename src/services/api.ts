@@ -1,4 +1,4 @@
-import { CardanoMetrics, TimePeriod } from '@/types/cardano';
+import { CardanoMetrics, TimePeriod, ValidatorMetrics, GovernanceMetrics, DeFiMetrics, StablecoinData, DexData } from '@/types/cardano';
 import { generateMockData } from '@/data/mockData';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.ultra-decentralised-money.com';
@@ -66,41 +66,41 @@ class CardanoApiService {
     }
   }
 
-  async getValidatorMetrics(timePeriod: TimePeriod) {
+  async getValidatorMetrics(timePeriod: TimePeriod): Promise<ValidatorMetrics> {
     try {
-      return await this.fetchFromAPI(`/validators?period=${timePeriod}`);
+      return await this.fetchFromAPI<ValidatorMetrics>(`/validators?period=${timePeriod}`);
     } catch (error) {
       return generateMockData(timePeriod).validators;
     }
   }
 
-  async getGovernanceMetrics(timePeriod: TimePeriod) {
+  async getGovernanceMetrics(timePeriod: TimePeriod): Promise<GovernanceMetrics> {
     try {
-      return await this.fetchFromAPI(`/governance?period=${timePeriod}`);
+      return await this.fetchFromAPI<GovernanceMetrics>(`/governance?period=${timePeriod}`);
     } catch (error) {
       return generateMockData(timePeriod).governance;
     }
   }
 
-  async getDeFiMetrics(timePeriod: TimePeriod) {
+  async getDeFiMetrics(timePeriod: TimePeriod): Promise<DeFiMetrics> {
     try {
-      return await this.fetchFromAPI(`/defi?period=${timePeriod}`);
+      return await this.fetchFromAPI<DeFiMetrics>(`/defi?period=${timePeriod}`);
     } catch (error) {
       return generateMockData(timePeriod).defi;
     }
   }
 
-  async getStablecoinData(timePeriod: TimePeriod) {
+  async getStablecoinData(timePeriod: TimePeriod): Promise<StablecoinData[]> {
     try {
-      return await this.fetchFromAPI(`/stablecoins?period=${timePeriod}`);
+      return await this.fetchFromAPI<StablecoinData[]>(`/stablecoins?period=${timePeriod}`);
     } catch (error) {
       return generateMockData(timePeriod).stablecoins;
     }
   }
 
-  async getDexData(timePeriod: TimePeriod) {
+  async getDexData(timePeriod: TimePeriod): Promise<DexData[]> {
     try {
-      return await this.fetchFromAPI(`/dexes?period=${timePeriod}`);
+      return await this.fetchFromAPI<DexData[]>(`/dexes?period=${timePeriod}`);
     } catch (error) {
       return generateMockData(timePeriod).dexes;
     }
