@@ -55,7 +55,7 @@ export const Dashboard = () => {
               </span>
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-              Real-time insights into Cardano's decentralization, governance activity, 
+              Real-time insights into Cardano&apos;s decentralization, governance activity, 
               and DeFi ecosystem growth. Track validators, proposals, TVL, and more.
             </p>
             
