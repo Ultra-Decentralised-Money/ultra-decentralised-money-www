@@ -16,10 +16,12 @@ export const GovernanceWidget = () => {
     REFRESH_INTERVALS.SLOW
   );
 
+  // eslint-disable-next-line  @typescript-eslint/no-explicit-any
   const getCurrentValue = (metrics: any[]) => {
     return metrics && metrics.length > 0 ? metrics[metrics.length - 1].value : 0;
   };
 
+  // eslint-disable-next-line  @typescript-eslint/no-explicit-any
   const getChange = (metrics: any[]) => {
     if (!metrics || metrics.length < 2) return 0;
     const current = metrics[metrics.length - 1].value;
