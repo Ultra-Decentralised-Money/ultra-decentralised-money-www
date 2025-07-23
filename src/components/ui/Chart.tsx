@@ -14,6 +14,7 @@ interface ChartProps {
   color?: string;
   height?: number;
   className?: string;
+  // eslint-disable-next-line  @typescript-eslint/no-explicit-any
   formatTooltip?: (point: any) => string;
   formatYAxis?: (value: number) => string;
 }
@@ -115,7 +116,7 @@ export const Chart = ({
           stops: [
             [0, `${color}40`],
             [1, `${color}10`],
-          ] as any,
+          ] ,
         },
         lineWidth: 2,
         lineColor: color,
@@ -164,7 +165,7 @@ export const Chart = ({
       {
         name: yAxisTitle || 'Value',
         data: data.map(item => [item.timestamp, item.value]),
-        type: type as any,
+        type: type,
       },
     ],
     credits: {

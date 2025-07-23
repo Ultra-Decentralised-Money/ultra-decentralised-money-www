@@ -4,8 +4,10 @@ import { generateMockData } from '@/data/mockData';
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.ultra-decentralised-money.com';
 
 class CardanoApiService {
+  // eslint-disable-next-line  @typescript-eslint/no-explicit-any
   private cache: Map<string, { data: any; timestamp: number; ttl: number }> = new Map();
 
+  // eslint-disable-next-line  @typescript-eslint/no-explicit-any
   private getCacheKey(endpoint: string, params?: Record<string, any>): string {
     const paramString = params ? JSON.stringify(params) : '';
     return `${endpoint}${paramString}`;
